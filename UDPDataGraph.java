@@ -96,10 +96,9 @@ public class UDPDataGraph extends JFrame {
                     String message = new String(msg.getData());
                     String[] lines = message.trim().split("\n");
                     for(String l : lines ) {
-                        l = l.trim();
                         if( l.length()>0 ) {
                             String[] pair = l.trim().split(":");
-                            datasets.put(pair[0], pair[1]);
+							if( pair.length==2 ) datasets.put(pair[0], pair[1]);
                         }
                     }
                 }
