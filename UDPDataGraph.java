@@ -94,11 +94,10 @@ public class UDPDataGraph extends JFrame {
                     DatagramPacket msg = new DatagramPacket(buffer, buffer.length);
                     socket.receive(msg);
                     String message = new String(msg.getData());
-                    message.trim();
-                    String[] lines = message.split("\n");
+                    String[] lines = message.trim().split("\n");
                     for(String l : lines ) {
                         l = l.trim();
-                        if( l.length()>0 && l.indexOf(':')>0 ) {
+                        if( l.length()>0 ) {
                             String[] pair = l.trim().split(":");
                             datasets.put(pair[0], pair[1]);
                         }
